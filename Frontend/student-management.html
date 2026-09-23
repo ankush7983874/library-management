@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+
+    <link rel="stylesheet" href="student-management.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <h2>BarnalaByte</h2>
+
+        <ul>
+            <li><a href="owner-dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+
+            <li class="active">
+                <a href="student-management.html">
+                    <i class="fas fa-users"></i> Students
+                </a>
+            </li>
+
+            <li><i class="fas fa-chair"></i> Seats</li>
+            <li><i class="fas fa-money-bill"></i> Fees</li>
+            <li><i class="fas fa-calendar-check"></i> Attendance</li>
+        </ul>
+
+    </div>
+
+    <button class="view">
+
+View ID
+
+</button>
+
+    <div class="main">
+
+        <div class="topbar">
+
+            <h1>Student Management</h1>
+
+            <button class="add-btn">
+                + Add Student
+            </button>
+
+        </div>
+
+        <div class="student-table">
+
+            <table>
+
+                <tr>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Seat</th>
+                    <th>Mobile</th>
+                    <th>Fee Status</th>
+                    <th>Action</th>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="https://i.pravatar.cc/40?img=1">
+                    </td>
+
+                    <td>Rahul Kumar</td>
+                    <td>A12</td>
+                    <td>9876543210</td>
+
+                    <td>
+                        <span class="paid">
+                            Paid
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="view">
+                            View
+                        </button>
+
+                        <button class="edit">
+                            Edit
+                        </button>
+
+                        <button class="delete">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <img src="https://i.pravatar.cc/40?img=2">
+                    </td>
+
+                    <td>Ankit Sharma</td>
+                    <td>B05</td>
+                    <td>9876543211</td>
+
+                    <td>
+                        <span class="pending">
+                            Pending
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="view">
+                            View
+                        </button>
+
+                        <button class="edit">
+                            Edit
+                        </button>
+
+                        <button class="delete">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+<script>
+if (!localStorage.getItem("ownerToken")) {
+    alert("Owner access required. Please login as Owner.");
+    window.location.href = "owner-login.html";
+}
+</script>
+</body>
+
+</html>

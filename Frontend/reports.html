@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Reports | BarnalaByte</title>
+<link rel="stylesheet" href="reports.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="topbar">
+        <button id="backBtn">
+            <i class="fa-solid fa-arrow-left"></i> Dashboard
+        </button>
+        <h1>Library Reports</h1>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <h2 id="reportTotalSeats">-</h2>
+            <p>Total Seats</p>
+        </div>
+        <div class="card">
+            <h2 id="reportOccupiedSeats">-</h2>
+            <p>Occupied Seats</p>
+        </div>
+        <div class="card">
+            <h2 id="reportAvailableSeats">-</h2>
+            <p>Available Seats</p>
+        </div>
+        <div class="card">
+            <h2 id="reportMonthlyIncome">-</h2>
+            <p>Monthly Income</p>
+        </div>
+        <div class="card">
+            <h2 id="reportPendingFees">-</h2>
+            <p>Pending Fees</p>
+        </div>
+        <div class="card">
+            <h2 id="reportWaitingCount">-</h2>
+            <p>Waiting Students</p>
+        </div>
+    </div>
+
+    <div class="reportBox">
+        <h2>Monthly Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Income</th>
+                    <th>Students</th>
+                    <th>Attendance</th>
+                </tr>
+            </thead>
+            <tbody id="monthlySummaryTable">
+                <!-- Dynamic -->
+            </tbody>
+        </table>
+    </div>
+
+    <div class="chartBox">
+        <h2>Analytics</h2>
+        <div class="graph" id="graphRevenue">
+            Loading analytics...
+        </div>
+        <div class="graph" id="graphOccupancy">
+            Loading analytics...
+        </div>
+    </div>
+</div>
+
+<script src="reports.js"></script>
+</body>
+</html>

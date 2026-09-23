@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seat Booking | BarnalaByte Library</title>
+<link rel="stylesheet" href="seat-booking.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <header style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px; border-bottom: 1px solid #334155; padding-bottom: 15px;">
+        <button id="dashboardBtn" style="background: #334155; color: white; padding: 10px 18px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px;">
+            <i class="fa-solid fa-arrow-left"></i> Dashboard
+        </button>
+        <h1 style="margin: 0; font-size: 22px; color: #38bdf8;"><i class="fa-solid fa-chair"></i> Seat Booking</h1>
+        <div style="width: 80px;"></div>
+    </header>
+
+    <!-- Auto-Loaded Registered Student Identity -->
+    <div class="section" style="margin-top: 0;">
+        <h2><i class="fa-solid fa-user-check"></i> Registered Student Identity</h2>
+        <div style="background: #0f172a; padding: 20px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px;">
+                <div>
+                    <label style="color: #94a3b8; font-size: 13px; display: block; margin-bottom: 4px;">Student Name</label>
+                    <span id="studentName" style="font-size: 16px; font-weight: bold; color: #f8fafc;">Loading...</span>
+                </div>
+                <div>
+                    <label style="color: #94a3b8; font-size: 13px; display: block; margin-bottom: 4px;">Student ID</label>
+                    <span id="studentIdCode" style="font-size: 16px; font-weight: bold; color: #38bdf8;">-</span>
+                </div>
+                <div>
+                    <label style="color: #94a3b8; font-size: 13px; display: block; margin-bottom: 4px;">Mobile Number</label>
+                    <span id="studentMobile" style="font-size: 16px; font-weight: bold; color: #f8fafc;">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seat & Payment Selection Form -->
+    <form id="seatBookingForm">
+        <div class="section">
+            <h2><i class="fa-solid fa-list-check"></i> Seat & Payment Selection</h2>
+
+            <div id="bookingSeatStatsBadge" style="background: #1e293b; padding: 10px 15px; border-radius: 8px; margin-bottom: 12px; font-size: 14px; font-weight: bold; display: flex; gap: 15px; justify-content: space-around;">
+                <span style="color: #22c55e;">🟢 Free: <span id="bookingFreeCount">--</span></span>
+                <span style="color: #ef4444;">🔴 Booked: <span id="bookingBookedCount">--</span></span>
+                <span style="color: #38bdf8;">🪑 Total: 150</span>
+            </div>
+
+            <label style="color: #cbd5e1; font-weight: 600; margin-bottom: 6px; display: block;">Select Seat</label>
+            <select id="seatSelect" style="background: #0f172a; color: white; border: 1px solid #334155; width: 100%; padding: 12px; border-radius: 10px; font-size: 15px;" required>
+                <option value="">-- Choose Available Seat (1–150) --</option>
+            </select>
+
+            <label style="color: #cbd5e1; font-weight: 600; margin-top: 15px; margin-bottom: 6px; display: block;">Payment Method</label>
+            <select id="paymentMethodSelect" style="background: #0f172a; color: white; border: 1px solid #334155; width: 100%; padding: 12px; border-radius: 10px; font-size: 15px;">
+                <option value="Razorpay">Option A: Razorpay (Instant Allotment)</option>
+                <option value="Manual_UPI">Option B: Manual UPI (QR / UTR Verification)</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit-btn" style="width: 100%; background: #22c55e; color: white; font-size: 18px; font-weight: bold; padding: 14px; border: none; border-radius: 10px; margin-top: 20px; cursor: pointer;">
+            <i class="fa-solid fa-credit-card"></i> Proceed To Payment
+        </button>
+    </form>
+
+    <div style="text-align: center; margin-top: 25px; color: #94a3b8; font-size: 13px;">
+        <p>Owner Contact: Ankush Barnala | Mob: 7983874285</p>
+    </div>
+</div>
+
+<script src="seat-booking.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Students | BarnalaByte Library</title>
+
+<link rel="stylesheet" href="student.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>👨‍🎓 Students Management</h1>
+
+<div class="top-actions">
+
+<input
+type="text"
+id="searchStudent"
+placeholder="Search Student...">
+
+<button id="addStudentBtn">
+
+<i class="fa-solid fa-plus"></i>
+
+Add Student
+
+</button>
+
+</div>
+
+</header>
+
+<div class="tableBox">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Photo</th>
+
+<th>Name</th>
+
+<th>Seat</th>
+
+<th>Mobile</th>
+
+<th>Joining Date</th>
+
+<th>Fee</th>
+
+<th>Status</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody id="studentTable">
+
+<tr>
+
+<td>
+
+<img src="https://i.pravatar.cc/60?img=15">
+
+</td>
+
+<td>Rahul Kumar</td>
+
+<td>21</td>
+
+<td>9876543210</td>
+
+<td>10-06-2026</td>
+
+<td>
+
+<span class="paid">
+
+Paid
+
+</span>
+
+</td>
+
+<td>
+
+<span class="active">
+
+Active
+
+</span>
+
+</td>
+
+<td>
+
+<button class="view">
+
+<i class="fa-solid fa-eye"></i>
+
+</button>
+
+<button class="edit">
+
+<i class="fa-solid fa-pen"></i>
+
+</button>
+
+<button class="delete">
+
+<i class="fa-solid fa-trash"></i>
+
+</button>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- Add Student Modal -->
+
+<div class="modal" id="studentModal">
+
+<div class="modal-content">
+
+<h2>Add Student</h2>
+
+<form id="studentForm">
+
+<input
+type="text"
+placeholder="Student Name"
+required>
+
+<input
+type="text"
+placeholder="Father Name"
+required>
+
+<input
+type="number"
+placeholder="Mobile Number"
+required>
+
+<input
+type="number"
+placeholder="Seat Number"
+required>
+
+<input
+type="date"
+required>
+
+<input
+type="number"
+placeholder="Monthly Fee"
+required>
+
+<input
+type="file">
+
+<button>
+
+Save Student
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script src="students.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+POST http://localhost:5000/api/owner/register
+Content-Type: application/json
+
+{
+  "libraryName": "BarnalaByte Library",
+  "ownerName": "Ankush Barnala",
+  "mobile": "7983874285",
+  "email": "ankushddu7983@gmail.com",
+  "password": "941020"
+}

@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e0e5ec;
+    padding: 30px 15px;
+    color: #2d3748;
+}
+
+.register-wrapper {
+    width: 100%;
+    max-width: 680px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Neumorphic Card */
+.neumorphic-card {
+    width: 100%;
+    background: #e0e5ec;
+    border-radius: 28px;
+    padding: 40px 35px 35px 35px;
+    box-shadow: 14px 14px 28px #babecc, -14px -14px 28px #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Top Circular Embossed Icon Container */
+.top-icon-container {
+    margin-bottom: 18px;
+}
+
+.icon-circle {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #e0e5ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 7px 7px 14px #babecc, -7px -7px 14px #ffffff;
+    font-size: 28px;
+    color: #2b6cb0;
+    transition: all 0.3s ease;
+}
+
+.icon-circle:hover {
+    box-shadow: inset 4px 4px 8px #babecc, inset -4px -4px 8px #ffffff;
+}
+
+/* Title Header */
+.title-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.title-header h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2d3748;
+    letter-spacing: -0.5px;
+}
+
+.title-header p {
+    font-size: 13.5px;
+    color: #718096;
+    margin-top: 4px;
+}
+
+/* Alert Box */
+.alert-box {
+    width: 100%;
+    padding: 11px 15px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.25s ease;
+}
+
+.alert-box.alert-error {
+    background: #fff5f5;
+    color: #e53e3e;
+    box-shadow: inset 2px 2px 5px #feb2b2, inset -2px -2px 5px #ffffff;
+}
+
+.alert-box.alert-success {
+    background: #f0fff4;
+    color: #276749;
+    box-shadow: inset 2px 2px 5px #c6f6d5, inset -2px -2px 5px #ffffff;
+}
+
+/* Form Styles */
+#registerForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* Grouped Form Sections */
+.form-section {
+    width: 100%;
+    background: #e0e5ec;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2b6cb0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(186, 190, 204, 0.4);
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+}
+
+.sub-text {
+    font-size: 12px;
+    color: #718096;
+    margin-top: -6px;
+    margin-bottom: 6px;
+}
+
+/* Grids */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px;
+}
+
+.req {
+    color: #e53e3e;
+    font-weight: bold;
+}
+
+/* Input Group & Wrappers */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: #4a5568;
+    margin-left: 4px;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #a0aec0;
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.input-wrapper input,
+.input-wrapper select,
+.input-wrapper textarea {
+    width: 100%;
+    padding: 13px 40px 13px 42px;
+    background: #e0e5ec;
+    border: none;
+    outline: none;
+    border-radius: 18px;
+    font-size: 13.5px;
+    color: #2d3748;
+    box-shadow: inset 4px 4px 8px #babecc, inset -4px -4px 8px #ffffff;
+    transition: all 0.25s ease;
+}
+
+.input-wrapper textarea {
+    border-radius: 14px;
+    resize: vertical;
+    min-height: 70px;
+}
+
+.input-wrapper select {
+    appearance: none;
+    cursor: pointer;
+}
+
+.input-wrapper input::placeholder,
+.input-wrapper textarea::placeholder {
+    color: #a0aec0;
+    font-size: 13px;
+}
+
+.input-wrapper input:focus,
+.input-wrapper select:focus,
+.input-wrapper textarea:focus {
+    box-shadow: inset 6px 6px 10px #babecc, inset -6px -6px 10px #ffffff;
+}
+
+/* Input with Inline Action Button */
+.input-wrapper-btn {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+/* Neumorphic Buttons */
+.neu-action-btn,
+.neu-success-btn {
+    padding: 13px 16px;
+    border: none;
+    border-radius: 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    background: #e0e5ec;
+    transition: all 0.25s ease;
+}
+
+.neu-action-btn {
+    color: #2b6cb0;
+    box-shadow: 4px 4px 8px #babecc, -4px -4px 8px #ffffff;
+}
+
+.neu-action-btn:hover {
+    box-shadow: 6px 6px 12px #babecc, -6px -6px 12px #ffffff;
+    color: #1a365d;
+}
+
+.neu-action-btn:active {
+    box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+}
+
+.neu-success-btn {
+    color: #276749;
+    box-shadow: 4px 4px 8px #babecc, -4px -4px 8px #ffffff;
+}
+
+.neu-success-btn:hover {
+    box-shadow: 6px 6px 12px #babecc, -6px -6px 12px #ffffff;
+}
+
+.neu-success-btn:active {
+    box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+}
+
+.neu-action-btn:disabled,
+.neu-success-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: inset 2px 2px 4px #babecc, inset -2px -2px 4px #ffffff;
+}
+
+/* OTP Sub Box */
+.neu-sub-box {
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 16px;
+    background: #e0e5ec;
+    box-shadow: inset 2px 2px 5px #babecc, inset -2px -2px 5px #ffffff;
+}
+
+.status-msg {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+/* Face Scan Section */
+.face-container {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.webcam-box {
+    position: relative;
+    width: 220px;
+    height: 165px;
+    border-radius: 14px;
+    background: #e0e5ec;
+    box-shadow: inset 4px 4px 8px #babecc, inset -4px -4px 8px #ffffff;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cam-placeholder {
+    text-align: center;
+    color: #a0aec0;
+}
+
+.cam-placeholder i {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.cam-placeholder p {
+    font-size: 12px;
+}
+
+.face-controls {
+    flex: 1;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: #4a5568;
+    cursor: pointer;
+}
+
+.consent-label input {
+    margin-top: 2px;
+}
+
+.btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Eye Toggle Button */
+.eye-toggle-btn {
+    position: absolute;
+    right: 14px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #a0aec0;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 50%;
+    transition: color 0.2s ease;
+}
+
+.eye-toggle-btn:hover {
+    color: #2b6cb0;
+}
+
+/* Photo Upload Box */
+.photo-upload-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.photo-preview-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #e0e5ec;
+    box-shadow: 4px 4px 8px #babecc, -4px -4px 8px #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-preview-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-input-col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.neu-upload-label {
+    padding: 9px 16px;
+    background: #e0e5ec;
+    color: #2b6cb0;
+    font-size: 12.5px;
+    font-weight: 600;
+    border-radius: 16px;
+    box-shadow: 4px 4px 8px #babecc, -4px -4px 8px #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+}
+
+.neu-upload-label:hover {
+    box-shadow: 6px 6px 12px #babecc, -6px -6px 12px #ffffff;
+    color: #1a365d;
+}
+
+.file-name {
+    font-size: 11.5px;
+    color: #718096;
+    margin-left: 4px;
+}
+
+/* Main LOGIN / CREATE ACCOUNT Button */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 10px;
+    background: #e0e5ec;
+    color: #2b6cb0;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 6px 6px 12px #babecc, -6px -6px 12px #ffffff;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-btn:hover {
+    box-shadow: 8px 8px 16px #babecc, -8px -8px 16px #ffffff;
+    color: #1a365d;
+}
+
+.login-btn:active {
+    box-shadow: inset 4px 4px 8px #babecc, inset -4px -4px 8px #ffffff;
+}
+
+.login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+}
+
+/* Signup / Bottom Navigation */
+.signup-section {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 13.5px;
+    color: #718096;
+}
+
+.login-link-btn {
+    color: #2b6cb0;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease;
+}
+
+.login-link-btn:hover {
+    color: #1a365d;
+    text-decoration: underline;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 680px) {
+    .grid-2,
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .neumorphic-card {
+        padding: 30px 20px 25px 20px;
+        border-radius: 22px;
+    }
+
+    .face-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .webcam-box {
+        width: 100%;
+        height: 180px;
+    }
+}

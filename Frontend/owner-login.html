@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Login | BarnalaByte Smart Library</title>
+    <link rel="stylesheet" href="owner-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <div class="neumorphic-card">
+
+            <!-- Top Circular Embossed Lock Icon Container -->
+            <div class="top-icon-container">
+                <div class="icon-circle">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+            </div>
+
+            <!-- Title & Subtitle -->
+            <div class="title-header">
+                <h2>Welcome</h2>
+                <p>Login to continue your journey</p>
+            </div>
+
+            <!-- Role Selector Toggle -->
+            <div class="role-selector">
+                <button type="button" class="role-btn" id="roleStudentBtn">
+                    <i class="fa-solid fa-user-graduate"></i> Student
+                </button>
+                <button type="button" class="role-btn active" id="roleOwnerBtn">
+                    <i class="fa-solid fa-user-tie"></i> Owner
+                </button>
+            </div>
+
+            <!-- Error UI Alert Container -->
+            <div id="errorAlert" class="error-alert" style="display: none;"></div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+
+                <!-- Email Address Field -->
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-envelope input-icon"></i>
+                        <input type="email" id="email" placeholder="Enter your email address" autocomplete="email" required>
+                    </div>
+                </div>
+
+                <!-- Password Field with Toggle -->
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-key input-icon"></i>
+                        <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password" required>
+                        <button type="button" id="togglePasswordBtn" class="eye-toggle-btn" aria-label="Toggle password visibility">
+                            <i id="eyeIcon" class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Remember Me & Forgot Password Row -->
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="rememberMe">
+                        <span class="custom-checkbox"></span>
+                        <span>Remember me</span>
+                    </label>
+                    <a href="forgot-password.html" class="forgot-link">Forgot Password?</a>
+                </div>
+
+                <!-- Large Neumorphic LOGIN Button -->
+                <button type="submit" id="loginSubmitBtn" class="login-btn">
+                    <span id="btnText">LOGIN</span>
+                </button>
+
+            </form>
+
+            <!-- Signup Section at Bottom -->
+            <div class="signup-section">
+                <span>Don't have an account?</span>
+                <a href="owner-register.html" id="signupPlusBtn" class="plus-circle-btn" title="Create Account">
+                    <i class="fa-solid fa-plus"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="owner-login.js"></script>
+
+</body>
+
+</html>

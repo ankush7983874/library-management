@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BarnalaByte Library Attendance</title>
+
+<link rel="stylesheet" href="attendance.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <button id="backBtn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Dashboard
+        </button>
+
+        <h1>BarnalaByte Library Attendance</h1>
+
+    </div>
+
+    <!-- Summary Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h2 id="attendancePercentage">0%</h2>
+            <p>Attendance Rate</p>
+        </div>
+
+        <div class="card">
+            <h2 id="presentDays">0</h2>
+            <p>Total Completed</p>
+        </div>
+
+        <div class="card">
+            <h2 id="todayStatus">NOT IN LIBRARY</h2>
+            <p>Today's Status</p>
+        </div>
+
+        <div class="card">
+            <h2 id="todayEntry">--:--</h2>
+            <p>Today's Entry Time</p>
+        </div>
+
+    </div>
+
+    <!-- Face Enrollment Required Notice (For Students without Reference Face) -->
+    <div id="faceEnrollmentBox" class="enrollment-box" style="display:none; background:#1e293b; border:1px solid #38bdf8; padding:20px; border-radius:12px; margin-bottom:20px; text-align:center;">
+        <h3 style="color:#38bdf8; margin-bottom:8px;"><i class="fa-solid fa-id-card-clip"></i> Attendance Face Enrollment Required</h3>
+        <p style="color:#cbd5e1; margin-bottom:15px;">Face registration is required for attendance. Position your face in front of the live camera and click below to capture your reference face profile.</p>
+        <button id="enrollFaceBtn" style="background:#22c55e; color:white; border:none; padding:12px 24px; border-radius:8px; font-weight:bold; font-size:15px; cursor:pointer;">
+            <i class="fa-solid fa-camera"></i> Register Reference Face For Attendance
+        </button>
+    </div>
+
+    <!-- Live Face & GPS Verification Section -->
+    <div class="verification-box">
+
+        <div class="camera-section">
+            <h3><i class="fa-solid fa-camera"></i> Face Verification Camera</h3>
+            <div class="video-container">
+                <video id="webcam" autoplay playsinline muted></video>
+                <canvas id="faceCanvas" style="display:none;"></canvas>
+                <div id="cameraOverlay" class="camera-overlay">
+                    <i class="fa-solid fa-user-check"></i>
+                    <p id="cameraStatusText">Initializing Camera...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="geofence-section">
+            <h3><i class="fa-solid fa-location-dot"></i> Library 20m Geofence Verification</h3>
+            <div id="geofenceStatusCard" class="geofence-card checking">
+                <div class="status-indicator">
+                    <span id="geofenceDot" class="dot yellow"></span>
+                    <strong id="geofenceStatusTitle">Checking Location...</strong>
+                </div>
+                <p id="geofenceDistanceText">Detecting distance to BarnalaByte Library...</p>
+                <div class="geofence-meta">
+                    <span id="rangeBadge" class="badge">Checking...</span>
+                </div>
+            </div>
+
+            <!-- Dynamic Session Information -->
+            <div id="activeSessionBox" class="active-session-box" style="display:none;">
+                <h4><i class="fa-solid fa-clock-rotate-left"></i> Current Active Session</h4>
+                <p>Entry: <strong id="sessionEntryTime">--:--</strong></p>
+                <p>Current Duration: <strong id="sessionDuration">0h 0m</strong></p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Action Buttons -->
+
+    <div class="action-buttons">
+
+        <button id="checkInBtn" class="btn-primary">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            MARK ENTRY
+        </button>
+
+        <button id="checkOutBtn" class="btn-danger" style="display:none;">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            MARK EXIT
+        </button>
+
+    </div>
+
+    <!-- Attendance Table -->
+
+    <div class="tableBox">
+
+        <h2><i class="fa-solid fa-calendar-days"></i> Complete Attendance History</h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Date</th>
+                    <th>Entry Time</th>
+                    <th>Exit Time</th>
+                    <th>Duration</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="attendanceTable">
+
+                <!-- Data API se ayega -->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script src="attendance.js"></script>
+
+</body>
+
+</html>

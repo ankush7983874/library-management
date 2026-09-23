@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student ID Card | BarnalaByte Library</title>
+    <link rel="stylesheet" href="student-id-card.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div style="width: 100%; max-width: 400px; margin: 20px auto; padding: 10px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+            <button onclick="window.location.href='student-dashboard.html'" style="padding: 8px 16px; background: #38bdf8; color: #0f172a; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+                <i class="fa-solid fa-arrow-left"></i> Dashboard
+            </button>
+            <button id="downloadPdfBtn" style="padding: 8px 16px; background: #22c55e; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">
+                <i class="fa-solid fa-download"></i> Download PDF
+            </button>
+        </div>
+
+        <!-- ID Card Structure -->
+        <div class="id-card" id="idCardBox">
+            <div class="card-header">
+                <img src="barnalabyte-logo.jpg" class="logo" alt="Logo" onerror="this.src='logo.png'">
+                <h2 class="library-name">BarnalaByte Library</h2>
+                <p class="library-type">Smart Library Management System</p>
+            </div>
+
+            <div class="photo-section">
+                <img id="cardPhoto" src="ankush photo.png" class="student-photo" alt="Student Photo">
+            </div>
+
+            <div class="student-info">
+                <p><strong>Name:</strong> <span id="cardName">Loading...</span></p>
+                <p><strong>Student ID:</strong> <span id="cardStudentId">-</span></p>
+                <p><strong>Seat No:</strong> <span id="cardSeat" style="color: #2563eb; font-weight: bold;">-</span></p>
+                <p><strong>Mobile:</strong> <span id="cardMobile">-</span></p>
+                <p><strong>Course:</strong> <span id="cardCourse">-</span></p>
+                <p><strong>Fee Status:</strong> <span id="cardFeeStatus" style="color: #16a34a; font-weight: bold;">-</span></p>
+                <p><strong>Valid Till:</strong> <span id="cardValidTill">-</span></p>
+            </div>
+
+            <div class="qr-section" style="padding-bottom: 55px;">
+                <img id="cardQr" src="" class="qr" alt="QR Code" style="display: none;">
+            </div>
+
+            <div class="footer">
+                BarnalaByte Smart Library | Verified Digital ID
+            </div>
+        </div>
+
+        <!-- Notice Box if ID Card Not Yet Generated -->
+        <div id="pendingNotice" style="display: none; background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 12px; padding: 20px; text-align: center; margin-top: 15px;">
+            <i class="fa-solid fa-clock fa-2x" style="color: #d69e2e; margin-bottom: 10px;"></i>
+            <h3>ID Card Generation Pending</h3>
+            <p style="font-size: 14px; margin-top: 8px;">
+                Your ID Card will be automatically generated as soon as your payment is verified and your seat is allotted.
+            </p>
+            <button onclick="window.location.href='seat-booking.html'" style="margin-top: 15px; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">
+                Book Seat / Complete Payment
+            </button>
+        </div>
+    </div>
+
+    <script src="student-id-card.js"></script>
+</body>
+</html>

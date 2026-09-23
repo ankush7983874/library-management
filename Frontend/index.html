@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Library Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<header>
+    <div class="header-brand" onclick="window.location.href='index.html'">
+        <img src="barnalabyte-logo.jpg" alt="BarnalaByte Library Logo" class="header-logo">
+        <h1>Smart Library Management System</h1>
+    </div>
+
+    <nav id="mainNav">
+        <!-- Dynamically rendered based on Auth State -->
+    </nav>
+</header>
+ 
+<section class="hero">
+
+    <h2>BarnalaByte Library</h2>
+
+    <p>
+        Manage Students, Attendance, Fees,
+        Seats and Library Facilities.
+    </p>
+    <a href="seat-availability.html">
+        <button id="bookBtn">Book Seat</button>
+    </a>
+
+    <div class="btn-group" id="heroBtnGroup">
+        <!-- Dynamically rendered based on Auth State -->
+    </div>
+
+</section>
+<script>
+function updateNav() {
+    const ownerToken = localStorage.getItem("ownerToken");
+    const studentToken = localStorage.getItem("studentToken");
+
+    const nav = document.getElementById("mainNav");
+    const heroBtns = document.getElementById("heroBtnGroup");
+
+    if (ownerToken) {
+        // OWNER SESSION
+        if (nav) {
+            nav.innerHTML = `
+                <a href="index.html">Home</a>
+                <a href="owner-dashboard.html">Owner Dashboard</a>
+                <a href="student-management.html">Students</a>
+                <a href="fee-management.html">Payments</a>
+                <a href="seat-availability.html">Seats</a>
+                <a href="attendance.html">Attendance</a>
+                <a href="reports.html">Reports</a>
+                <a href="#" onclick="logoutOwner(event)">Logout</a>
+            `;
+        }
+        if (heroBtns) {
+            heroBtns.innerHTML = `
+                <button onclick="window.location.href='owner-dashboard.html'">Owner Dashboard</button>
+            `;
+        }
+    } else if (studentToken) {
+        // STUDENT SESSION
+        if (nav) {
+            nav.innerHTML = `
+                <a href="index.html">Home</a>
+                <a href="student-dashboard.html">Student Dashboard</a>
+                <a href="student-profile.html">My Account</a>
+                <a href="library-profile.html">Library</a>
+                <a href="#" onclick="logoutStudent(event)">Logout</a>
+            `;
+        }
+        if (heroBtns) {
+            heroBtns.innerHTML = `
+                <button onclick="window.location.href='student-dashboard.html'">Student Dashboard</button>
+                <button onclick="window.location.href='student-profile.html'">My Account</button>
+            `;
+        }
+    } else {
+        // GUEST SESSION
+        if (nav) {
+            nav.innerHTML = `
+                <a href="index.html">Home</a>
+                <a href="library-profile.html">About</a>
+                <a href="student-login.html">Login</a>
+                <a href="student-register.html">Register</a>
+            `;
+        }
+        if (heroBtns) {
+            heroBtns.innerHTML = `
+                <button onclick="window.location.href='student-login.html'">Student Login</button>
+                <button onclick="window.location.href='owner-login.html'">Owner Login</button>
+            `;
+        }
+    }
+}
+
+function logoutOwner(e) {
+    if (e) e.preventDefault();
+    localStorage.removeItem("ownerToken");
+    localStorage.removeItem("ownerData");
+    alert("Logged Out Successfully");
+    updateNav();
+    window.location.href = "index.html";
+}
+
+function logoutStudent(e) {
+    if (e) e.preventDefault();
+    localStorage.removeItem("studentToken");
+    localStorage.removeItem("studentData");
+    alert("Logged Out Successfully");
+    updateNav();
+    window.location.href = "index.html";
+}
+
+document.addEventListener("DOMContentLoaded", updateNav);
+updateNav();
+</script>
+<section class="features">
+
+    <div class="card">
+        <h3>Attendance</h3>
+        <p>Track Entry and Exit</p>
+    </div>
+
+    <div class="card">
+        <h3>Fee Management</h3>
+        <p>Track Monthly Fees</p>
+    </div>
+
+    <div class="card">
+        <h3>Digital ID</h3>
+        <p>Student QR ID Card</p>
+    </div>
+
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery">
+    <h2>Library Gallery</h2>
+
+    <div class="gallery-grid">
+        <img src="https://content.jdmagicbox.com/v2/comp/hissar/g5/9999p1662.1662.170628175516.c6g5/catalogue/the-stephens-atheneum-library-model-town-hissar-libraries-5PD0yRxl3S.jpg" alt="Library Image 1">
+        <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNl2gPj8Wf-CJTrpDYH-4hoXC4u9NSuEE70g&s" alt="Library Image 2">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2022/10/KU/FI/KS/36540273/library-furniture-set-500x500.jpeg" alt="Library Image 3">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxwgXRVxDJ3d1IglO0h8M9kdabxYvnnIZ4vg&s" alt="Library Image 4">
+        <img src="https://www.magnific.com/premium-photo/bicycle-parking-public-park_381728302.htm#fromView=search&page=1&position=20&uuid=05b440b1-e262-4e6c-985e-04ae5df0bd39&query=++cycle+or+bick+parking+liabary+imge" alt="image 5">
+        <img src="https://content.jdmagicbox.com/comp/sahibabad/y7/011pxx11.xx11.220628125032.d4y7/catalogue/mini-home-library-shalimar-garden-extention-2-sahibabad-libraries-2wl9qiy5hk.jpg" alt="image 6">
+
+        <img src="logo.png" alt="7">
+
+    </div>
+
+</section>
+</body>
+<script src="register.js"></script>
+</html>

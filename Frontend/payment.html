@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Payment Center & Face Scan | BarnalaByte</title>
+
+<link rel="stylesheet" href="payment.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+            Header
+    ========================== -->
+
+    <header>
+
+        <button id="dashboardBtn">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Dashboard
+
+        </button>
+
+        <h1>
+
+            <i class="fa-solid fa-wallet"></i>
+
+            Face Verification & Payment Center
+
+        </h1>
+
+    </header>
+
+    <!-- =========================
+        Student Card
+    ========================== -->
+
+    <section class="student-card">
+
+        <div class="student-info">
+
+            <img id="studentPhoto"
+            src="ankush photo.png">
+
+            <div>
+
+                <h2 id="studentName">
+
+                    Loading...
+
+                </h2>
+
+                <p id="studentCourse">
+
+                    B.Tech IT
+
+                </p>
+
+                <span id="paymentStatus">
+                    Pending
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+            Fee Card
+    ========================== -->
+
+    <section class="fee-card">
+
+        <div class="fee-box">
+
+            <h3>
+
+                Monthly Fee
+
+            </h3>
+
+            <h1>
+
+                ₹500
+
+            </h1>
+
+        </div>
+
+        <div class="fee-box">
+
+            <h3>
+
+                Current Month
+
+            </h3>
+
+            <h2 id="currentMonth">
+
+                July 2026
+
+            </h2>
+
+        </div>
+
+        <div class="fee-box">
+
+            <h3>
+
+                Status
+
+            </h3>
+
+            <h2 id="feeStatus">
+
+                Pending
+
+            </h2>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+          PAYMENT STATUS BANNER / CARD
+    ========================== -->
+    <div id="statusCardContainer" style="display: none; margin-bottom: 20px;">
+        <div id="statusCard" style="background: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                <h3 style="margin: 0; font-size: 18px; color: #856404;" id="statusCardTitle">
+                    <i class="fa-solid fa-clock"></i> Payment Submitted Successfully
+                </h3>
+                <button id="refreshStatusBtn" style="padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-rotate"></i> Refresh Status
+                </button>
+            </div>
+            <div style="font-size: 14px; line-height: 1.8;">
+                <p style="margin: 4px 0;"><strong>Status:</strong> <span id="statusCardBadge" style="padding: 4px 10px; border-radius: 6px; font-weight: bold; background: #ffc107; color: #000;">PENDING OWNER VERIFICATION</span></p>
+                <p style="margin: 4px 0;"><strong>Transaction ID:</strong> <code id="statusCardTxnId" style="background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 4px;">-</code></p>
+                <p style="margin: 4px 0;"><strong>Amount:</strong> <span id="statusCardAmount" style="font-weight: bold;">₹500</span></p>
+                <p style="margin: 10px 0 0 0; font-size: 14px; color: #333;" id="statusCardMsg">
+                    Your payment has been submitted. Seat will be allotted after Owner verification.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================
+          PHASE 3 — PAYMENT OPTIONS
+    ========================== -->
+
+    <section class="payment-card">
+
+        <div class="left">
+
+            <h2>
+
+                Option A: Razorpay (Instant Allotment)
+
+            </h2>
+
+            <p style="color: #555; font-size: 13px; margin-bottom: 15px;">
+                Pay securely via Credit/Debit Card, NetBanking, or Razorpay UPI for instant seat allocation.
+            </p>
+
+            <button id="razorpayBtn" style="width: 100%; padding: 12px; background: #3399cc; color: white; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-size: 16px;">
+                <i class="fa-solid fa-bolt"></i> Pay ₹500 via Razorpay
+            </button>
+
+            <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+
+            <h2>
+
+                Scan QR Code
+
+            </h2>
+
+            <img
+            id="upiQrCodeImg"
+            src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi%3A%2F%2Fpay%3Fpa%3Dbarnalauo86%40okaxis%26pn%3DBarnalaByte%2520Library%26am%3D500%26cu%3DINR"
+            alt="Dynamic UPI QR Code"
+            class="qr">
+
+            <p style="font-weight: bold; color: #007bff; margin-top: 5px;">
+                UPI ID: barnalauo86@okaxis
+            </p>
+            <p>
+                Scan using PhonePe / Google Pay / Paytm / BHIM
+            </p>
+
+        </div>
+
+        <div class="right">
+
+            <h2>
+
+                Option B: Manual UPI Payment
+
+            </h2>
+
+            <p style="color: #d9534f; font-size: 12px; font-weight: bold; margin-bottom: 10px;">
+                ⚠️ Notice: Manual UPI payments remain PENDING until authenticated Owner verification. Transaction ID alone does NOT give a seat.
+            </p>
+
+            <label>
+
+                Official Library UPI ID
+
+            </label>
+
+            <div class="upi-box">
+
+                <input
+                type="text"
+                id="upiId"
+                value="barnalauo86@okaxis"
+                readonly>
+
+                <button id="copyBtn">
+
+                    <i class="fa-solid fa-copy"></i>
+
+                </button>
+
+            </div>
+
+            <label>
+
+                Transaction ID / UTR Number
+
+            </label>
+
+            <input
+            type="text"
+            id="transactionId"
+            placeholder="Enter Transaction ID (12-digit UTR)">
+
+            <label>
+
+                Payment Method
+
+            </label>
+
+            <select id="paymentMethod">
+
+                <option value="Manual_UPI">
+
+                    Manual UPI
+
+                </option>
+
+                <option value="PhonePe">
+
+                    PhonePe
+
+                </option>
+
+                <option value="Google Pay">
+
+                    Google Pay
+
+                </option>
+
+                <option value="Paytm">
+
+                    Paytm
+
+                </option>
+
+            </select>
+
+            
+
+            <button id="submitPayment">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Submit Manual Payment for Review
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- =========================
+        Payment History
+    ========================== -->
+
+    <section class="history">
+
+        <h2>
+
+            Payment History
+
+        </h2>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Month</th>
+
+                    <th>Amount</th>
+
+                    <th>Method</th>
+
+                    <th>Status</th>
+
+                    <th>Date</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="paymentTable">
+
+                <!-- Dynamic -->
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="payment.js"></script>
+
+</body>
+
+</html>

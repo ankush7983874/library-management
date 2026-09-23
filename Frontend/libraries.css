@@ -1,0 +1,91 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+padding:20px 8%;
+background:#111827;
+}
+
+header a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+header a:hover{
+color:#38bdf8;
+}
+
+.search-section{
+text-align:center;
+padding:50px;
+}
+
+.search-section input{
+width:400px;
+padding:12px;
+border:none;
+border-radius:10px;
+}
+
+.library-container{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:30px;
+}
+
+.library-card{
+width:350px;
+background:#1e293b;
+border-radius:20px;
+overflow:hidden;
+transition:.4s;
+}
+
+.library-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px rgba(56,189,248,.5);
+}
+
+.library-card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.library-card h3{
+padding:15px;
+}
+
+.library-card p{
+padding:0 15px 10px;
+}
+
+.facility{
+padding:0 15px 15px;
+color:#38bdf8;
+}
+
+.library-card button{
+margin:15px;
+width:90%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#38bdf8;
+font-weight:bold;
+cursor:pointer;
+}

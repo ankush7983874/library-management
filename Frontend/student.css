@@ -1,0 +1,422 @@
+/* premium background */
+body{
+
+font-family:'Poppins',sans-serif;
+
+background:
+
+radial-gradient(circle at top left,#60a5fa 0%,transparent 35%),
+
+radial-gradient(circle at bottom right,#38bdf8 0%,transparent 30%),
+
+linear-gradient(135deg,#eef5ff,#dbeafe,#f8fbff);
+
+min-height:100vh;
+
+overflow-x:hidden;
+
+}
+
+/* container */
+.container{
+
+width:95%;
+
+margin:40px auto;
+
+padding:30px;
+
+background:rgba(255,255,255,.65);
+
+backdrop-filter:blur(20px);
+
+border-radius:25px;
+
+box-shadow:
+
+0 20px 60px rgba(37,99,235,.12);
+
+border:1px solid rgba(255,255,255,.6);
+
+animation:fade .8s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/* search box */
+.top-actions{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin:30px 0;
+
+}
+
+#searchStudent{
+
+width:340px;
+
+padding:15px 22px;
+
+border:none;
+
+outline:none;
+
+border-radius:50px;
+
+background:white;
+
+font-size:15px;
+
+box-shadow:
+
+0 10px 30px rgba(0,0,0,.08);
+
+transition:.4s;
+
+}
+
+#searchStudent:focus{
+
+transform:scale(1.03);
+
+box-shadow:
+
+0 15px 35px rgba(37,99,235,.25);
+
+}
+
+/* add student button */
+#addStudentBtn{
+
+padding:15px 30px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+background:linear-gradient(135deg,#2563eb,#06b6d4);
+
+color:white;
+
+transition:.4s;
+
+box-shadow:0 15px 30px rgba(37,99,235,.3);
+
+}
+
+#addStudentBtn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 25px 40px rgba(37,99,235,.45);
+
+}
+
+/* premium table */
+.tableBox{
+
+margin-top:35px;
+
+background:white;
+
+border-radius:25px;
+
+overflow:hidden;
+
+box-shadow:
+
+0 20px 45px rgba(0,0,0,.08);
+
+}
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+thead{
+
+background:linear-gradient(135deg,#2563eb,#0ea5e9);
+
+color:white;
+
+}
+
+th{
+
+padding:20px;
+
+font-size:15px;
+
+}
+
+td{
+
+padding:18px;
+
+text-align:center;
+
+border-bottom:1px solid #eef2ff;
+
+}
+
+tbody tr{
+
+transition:.3s;
+
+}
+
+tbody tr:hover{
+
+background:#f8fbff;
+
+transform:scale(1.01);
+
+}
+
+/* student image */
+td img{
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+border:3px solid #2563eb;
+
+transition:.4s;
+
+}
+
+td img:hover{
+
+transform:scale(1.2);
+
+}
+
+/* student budges */
+.paid{
+
+background:#dcfce7;
+
+color:#15803d;
+
+padding:8px 16px;
+
+border-radius:50px;
+
+font-weight:600;
+
+}
+
+.active{
+
+background:#dbeafe;
+
+color:#2563eb;
+
+padding:8px 16px;
+
+border-radius:50px;
+
+font-weight:600;
+
+}
+
+/* action button */
+.view,
+.edit,
+.delete{
+
+width:42px;
+
+height:42px;
+
+border:none;
+
+border-radius:50%;
+
+cursor:pointer;
+
+margin:0 4px;
+
+transition:.35s;
+
+color:white;
+
+}
+
+.view{
+
+background:#2563eb;
+
+}
+
+.edit{
+
+background:#f59e0b;
+
+}
+
+.delete{
+
+background:#ef4444;
+
+}
+
+.view:hover,
+.edit:hover,
+.delete:hover{
+
+transform:translateY(-4px) scale(1.08);
+
+}
+
+/* premium model */
+.modal{
+
+display:none;
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.45);
+
+backdrop-filter:blur(10px);
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.modal-content{
+
+width:550px;
+
+background:white;
+
+padding:35px;
+
+border-radius:25px;
+
+animation:popup .4s;
+
+}
+
+@keyframes popup{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+/* input */
+.modal-content input{
+
+width:100%;
+
+padding:15px;
+
+margin:12px 0;
+
+border:none;
+
+background:#eef5ff;
+
+border-radius:14px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.modal-content input:focus{
+
+background:white;
+
+box-shadow:0 10px 25px rgba(37,99,235,.25);
+
+}
+
+/* responsive */
+@media(max-width:900px){
+
+.top-actions{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+#searchStudent{
+
+width:100%;
+
+}
+
+table{
+
+font-size:13px;
+
+}
+
+.modal-content{
+
+width:95%;
+
+}
+
+}

@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    #020617,
+    #0f172a,
+    #1e293b
+    );
+}
+
+/* ID Card */
+
+.id-card{
+
+    width:350px;
+    min-height:600px;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.4);
+
+    position:relative;
+}
+
+/* Top Header */
+
+.card-header{
+
+    background:
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #38bdf8
+    );
+
+    color:white;
+
+    text-align:center;
+
+    padding:20px;
+}
+
+.logo{
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:5px;
+
+    object-fit:cover;
+}
+
+.library-name{
+
+    margin-top:10px;
+
+    font-size:22px;
+    font-weight:700;
+}
+
+.library-type{
+
+    font-size:13px;
+}
+
+/* Photo */
+
+.photo-section{
+
+    text-align:center;
+
+    margin-top:20px;
+}
+
+.student-photo{
+
+    width:130px;
+    height:130px;
+
+    border-radius:10px;
+
+    object-fit:cover;
+
+    border:4px solid #38bdf8;
+}
+
+/* Student Info */
+
+.student-info{
+
+    padding:20px;
+}
+
+.student-info p{
+
+    margin-bottom:10px;
+
+    font-size:14px;
+
+    color:#1e293b;
+
+    border-bottom:
+    1px solid #e2e8f0;
+
+    padding-bottom:6px;
+}
+
+.student-info strong{
+
+    color:#2563eb;
+}
+
+/* QR */
+
+.qr-section{
+
+    text-align:center;
+}
+
+.qr{
+
+    width:120px;
+    margin-top:10px;
+}
+
+/* Footer */
+
+.footer{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-align:center;
+
+    padding:12px;
+
+    font-size:12px;
+}

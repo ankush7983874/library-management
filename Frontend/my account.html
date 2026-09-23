@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | BarnalaByte Smart Library</title>
+    <link rel="stylesheet" href="owner-dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        body {
+            background: #e0e5ec;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .profile-card-container {
+            width: 100%;
+            max-width: 540px;
+            background: #e0e5ec;
+            border-radius: 28px;
+            padding: 40px;
+            box-shadow: 14px 14px 28px #babecc, -14px -14px 28px #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #e0e5ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 7px 7px 14px #babecc, -7px -7px 14px #ffffff;
+            font-size: 32px;
+            color: #2b6cb0;
+            margin-bottom: 20px;
+        }
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .profile-header h2 {
+            font-size: 24px;
+            color: #2d3748;
+            font-weight: 700;
+        }
+        .profile-header p {
+            font-size: 14px;
+            color: #718096;
+            margin-top: 4px;
+        }
+        .info-grid {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .info-row {
+            background: #e0e5ec;
+            padding: 16px 20px;
+            border-radius: 18px;
+            box-shadow: inset 3px 3px 6px #babecc, inset -3px -3px 6px #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .info-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #718096;
+        }
+        .info-val {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        .back-btn {
+            margin-top: 30px;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 20px;
+            background: #e0e5ec;
+            color: #2b6cb0;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 6px 6px 12px #babecc, -6px -6px 12px #ffffff;
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .back-btn:hover {
+            box-shadow: 8px 8px 16px #babecc, -8px -8px 16px #ffffff;
+            color: #1a365d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile-card-container">
+
+        <div class="icon-circle">
+            <i id="userIcon" class="fa-solid fa-user-tie"></i>
+        </div>
+
+        <div class="profile-header">
+            <h2 id="headerTitle">Owner Profile</h2>
+            <p id="headerSubtitle">BarnalaByte Smart Library Management</p>
+        </div>
+
+        <div class="info-grid">
+
+            <div class="info-row">
+                <span class="info-label">Library Name</span>
+                <span id="libNameVal" class="info-val">Loading...</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Owner Name</span>
+                <span id="ownerNameVal" class="info-val">Loading...</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Mobile Number</span>
+                <span id="mobileVal" class="info-val">Loading...</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Email Address</span>
+                <span id="emailVal" class="info-val">Loading...</span>
+            </div>
+
+            <div class="info-row">
+                <span class="info-label">Account Role</span>
+                <span id="roleVal" class="info-val" style="color: #2b6cb0;">Owner</span>
+            </div>
+
+        </div>
+
+        <a href="owner-dashboard.html" id="backDashboardBtn" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        </a>
+
+    </div>
+
+    <script>
+        const API_BASE = "http://localhost:5000/api";
+        const ownerToken = localStorage.getItem("ownerToken");
+        const studentToken = localStorage.getItem("studentToken");
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            if (ownerToken) {
+                // Fetch Owner Profile from API
+                try {
+                    const res = await fetch(`${API_BASE}/owner/profile`, {
+                        headers: { "Authorization": `Bearer ${ownerToken}` }
+                    });
+
+                    if (res.status === 401 || res.status === 403) {
+                        alert("Owner access expired. Please login again.");
+                        window.location.href = "owner-login.html";
+                        return;
+                    }
+
+                    const data = await res.json();
+                    if (data.success && data.owner) {
+                        const o = data.owner;
+                        document.getElementById("libNameVal").textContent = o.libraryName || "N/A";
+                        document.getElementById("ownerNameVal").textContent = o.ownerName || "N/A";
+                        document.getElementById("mobileVal").textContent = o.mobile || "N/A";
+                        document.getElementById("emailVal").textContent = o.email || "N/A";
+                        document.getElementById("roleVal").textContent = "Library Owner";
+                    }
+                } catch (err) {
+                    console.error(err);
+                }
+            } else if (studentToken) {
+                // Redirect student to student profile page
+                window.location.href = "student_profile.html";
+            } else {
+                alert("Authentication required.");
+                window.location.href = "owner-login.html";
+            }
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,362 @@
+/* ===================================
+   BarnalaByte Attendance Module
+   Final Premium CSS
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+}
+
+.container{
+    width:95%;
+    max-width:1300px;
+    margin:30px auto;
+}
+
+/* ==========================
+        Header
+========================== */
+
+.header{
+    display:flex;
+    justify-space:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.header h1{
+    color:#1e3a8a;
+    font-size:32px;
+}
+
+#backBtn{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+#backBtn:hover{
+    background:#1d4ed8;
+}
+
+/* ==========================
+        Cards
+========================== */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-bottom:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card h2{
+    color:#2563eb;
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    font-size:15px;
+}
+
+/* ==========================
+   Verification Section (Camera + Geofence)
+========================== */
+
+.verification-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.camera-section,
+.geofence-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+.camera-section h3,
+.geofence-section h3 {
+    color: #1e3a8a;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    background: #0f172a;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#webcam {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.camera-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: rgba(15, 23, 42, 0.75);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    backdrop-filter: blur(4px);
+}
+
+/* Geofence Status Card */
+.geofence-card {
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 6px solid #eab308;
+    background: #fefce8;
+    margin-bottom: 15px;
+}
+
+.geofence-card.verified {
+    border-left-color: #16a34a;
+    background: #f0fdf4;
+}
+
+.geofence-card.rejected {
+    border-left-color: #dc2626;
+    background: #fef2f2;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot.yellow { background: #eab308; }
+.dot.green { background: #16a34a; }
+.dot.red { background: #dc2626; }
+
+.geofence-card p {
+    color: #475569;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.badge.verified { background: #dcfce7; color: #166534; }
+.badge.rejected { background: #fee2e2; color: #991b1b; }
+
+.active-session-box {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.active-session-box h4 {
+    color: #1d4ed8;
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.active-session-box p {
+    font-size: 14px;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+/* ==========================
+      Buttons
+========================== */
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:30px;
+    flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-danger{
+    padding:16px 45px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+    color:white;
+    font-weight:600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.btn-primary{
+    background:#16a34a;
+}
+
+.btn-primary:hover{
+    background:#15803d;
+    transform: translateY(-2px);
+}
+
+.btn-danger{
+    background:#dc2626;
+}
+
+.btn-danger:hover{
+    background:#b91c1c;
+    transform: translateY(-2px);
+}
+
+/* ==========================
+        Table
+========================== */
+
+.tableBox{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.tableBox h2{
+    margin-bottom:20px;
+    color:#1e3a8a;
+    font-size: 22px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+thead{
+    background:#2563eb;
+    color:white;
+}
+
+th,td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+tbody tr:hover{
+    background:#f5f7ff;
+}
+
+.present, .completed{
+    color:#16a34a;
+    font-weight:bold;
+}
+
+.open{
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.absent{
+    color:#dc2626;
+    font-weight:bold;
+}
+
+/* ==========================
+      Responsive
+========================== */
+
+@media(max-width:768px){
+
+.header{
+    flex-direction:column;
+    gap:20px;
+}
+
+.header h1{
+    font-size:24px;
+    text-align:center;
+}
+
+.verification-box {
+    grid-template-columns: 1fr;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.action-buttons{
+    flex-direction:column;
+}
+
+.btn-primary,
+.btn-danger{
+    width:100%;
+}
+
+.tableBox{
+    overflow-x:auto;
+}
+
+table{
+    min-width:650px;
+}
+
+}

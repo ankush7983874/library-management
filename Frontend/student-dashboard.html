@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard</title>
+
+    <link rel="stylesheet" href="student-dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+ 
+<body>
+     
+    <a href="#" id="logoutBtn">
+    Logout
+</a>
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>📚 BarnalaByte</h2>
+
+        <ul>
+
+            <li class="active" onclick="window.location.href='student-dashboard.html'">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </li>
+
+             
+
+            <li onclick="window.location.href='student-profile.html'">
+
+                <i class="fa-solid fa-user"></i>
+
+                <span>My Profile</span>
+
+            </li>
+
+            <li onclick="window.location.href='attendance.html'">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                <span>Attendance</span>
+
+            </li>
+
+            <li onclick="window.location.href='seat-booking.html'">
+
+                <i class="fa-solid fa-chair"></i>
+
+                <span>Book Seat</span>
+
+            </li>
+
+            <li onclick="window.location.href='payment.html'">
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+
+                <span>Payments</span>
+
+            </li>
+
+            <li onclick="window.location.href='student-id-card.html'">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                <span>ID Card</span>
+
+            </li>
+
+            <li onclick="window.location.href='library-profile.html'">
+
+                <i class="fa-solid fa-building"></i>
+
+                <span>Library</span>
+
+            </li>
+
+            <li onclick="window.location.href='notifications.html'">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span>Notifications</span>
+
+            </li>
+
+            <li onclick="window.location.href='student-login.html'">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <div>
+
+                 <h1 id="studentName">Welcome 👋</h1>
+
+                <p>BarnalaByte Smart Library</p>
+
+            </div>
+
+            <img
+    id="studentPhoto"
+    src="ankush photo.png"
+    alt="Student">
+
+        </div>
+
+        <!-- Welcome Section -->
+
+        <div class="welcome">
+
+            <div>
+
+                <h2>Have a Great Study Day 📚</h2>
+
+                <p>
+
+                    Stay focused and complete today's goals.
+
+                </p>
+
+            </div>
+
+            <div class="dateTime">
+
+                <h3 id="date"></h3>
+
+                <h2 id="clock"></h2>
+
+            </div>
+
+        </div>
+
+        <!-- Dashboard Cards (Phase 7) -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-envelope-circle-check"></i>
+
+                <h2>Email OTP</h2>
+
+                <p id="otpStatus" style="color: #28a745; font-weight: bold;">Verified ✅</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-user-check"></i>
+
+                <h2>Face Verification</h2>
+
+                <p id="faceStatus" style="font-weight: bold;">Checking...</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-money-check-dollar"></i>
+
+                <h2>Fee Status</h2>
+
+                <p id="feesStatus" style="font-weight: bold;">Pending</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-chair"></i>
+
+                <h2>Seat No.</h2>
+
+                <p id="seatNumber" style="font-weight: bold;">--</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-id-card"></i>
+
+                <h2>ID Card</h2>
+
+                <button id="downloadID"
+                    onclick="downloadIDCard()"
+                    style="margin-top: 5px; padding: 6px 12px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">
+
+                    Download PDF
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Quick Actions -->
+
+        <div class="quickActions">
+
+            <div class="action"
+                onclick="window.location.href='student-profile.html'">
+
+                <i class="fa-solid fa-user"></i>
+
+                <h3>My Profile</h3>
+
+            </div>
+
+            <div class="action"
+                onclick="window.location.href='attendance.html'">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                <h3>Attendance</h3>
+
+            </div>
+
+            <div class="action"
+                onclick="window.location.href='payment.html'">
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+
+                <h3>Pay Fees</h3>
+
+            </div>
+
+            <div class="action"
+                onclick="window.location.href='seat-availability.html'">
+
+                <i class="fa-solid fa-chair"></i>
+
+                <h3>Book Seat</h3>
+
+            </div>
+
+            <div class="action"
+                onclick="window.location.href='library-profile.html'">
+
+                <i class="fa-solid fa-building"></i>
+
+                <h3>Library</h3>
+
+            </div>
+
+            <div class="action"
+                onclick="window.location.href='notifications.html'">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <h3>Notifications</h3>
+
+            </div>
+
+        </div>
+
+        <!-- Attendance History -->
+
+        <div class="tableBox">
+            <h2>Attendance History</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Entry Time</th>
+                        <th>Exit Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="dashboardAttendanceTable">
+                    <!-- Dynamic -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Payment History -->
+        <div class="paymentHistory">
+            <h2>Recent Fee Payments</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="dashboardPaymentTable">
+                    <!-- Dynamic -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Notice Board -->
+
+        <!-- <div class="notice">
+
+            <h2>Today's Notice</h2>
+
+            <ul>
+
+                <li>📚 Library opens at 7:00 AM</li>
+
+                <li>💰 Monthly fee due on the 5th of every month</li>
+
+                <li>🤫 Please maintain silence inside the library</li>
+
+                <li>📱 Use mobile phones only in silent mode</li>
+
+            </ul>
+
+        </div> -->
+
+                <!-- Statistics Cards -->
+
+        <!-- <div class="extraCards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-percent"></i>
+
+                <h2>98%</h2>
+
+                <p>Overall Attendance</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-clock"></i>
+
+                <h2>7 AM - 10 PM</h2>
+
+                <p>Library Timing</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-book-open-reader"></i>
+
+                <h2>150</h2>
+
+                <p>Total Seats</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <h2>Seat 51</h2>
+
+                <p>Currently Allotted</p>
+
+            </div>
+
+        </div> -->
+
+        <!-- Study Quote -->
+
+        <!-- <div class="quoteBox">
+
+            <h2>📖 Motivation of the Day</h2>
+
+            <p>
+
+                "Success doesn't come from what you do occasionally,
+                it comes from what you do consistently."
+
+            </p>
+
+        </div> -->
+
+        <!-- Library Information -->
+
+        <!-- <div class="libraryInfo">
+
+            <h2>Library Information</h2>
+
+            <div class="infoGrid">
+
+                <div class="infoItem">
+
+                    <i class="fa-solid fa-wifi"></i>
+
+                    <h3>High Speed WiFi</h3>
+
+                </div>
+
+                <div class="infoItem">
+
+                    <i class="fa-solid fa-snowflake"></i>
+
+                    <h3>Air Conditioned</h3>
+
+                </div>
+
+                <div class="infoItem">
+
+                    <i class="fa-solid fa-video"></i>
+
+                    <h3>CCTV Security</h3>
+
+                </div>
+
+                <div class="infoItem">
+
+                    <i class="fa-solid fa-square-parking"></i>
+
+                    <h3>Parking</h3>
+
+                </div>
+
+                <div class="infoItem">
+
+                    <i class="fa-solid fa-glass-water"></i>
+
+                    <h3>RO Drinking Water</h3>
+
+                </div>
+
+                <div class="infoItem">
+
+                    <i class="fa-solid fa-bolt"></i>
+
+                    <h3>Power Backup</h3>
+
+                </div>
+
+            </div>
+
+        </div> -->
+
+        <!-- Footer -->
+
+        <!-- <footer>
+
+            <p>
+
+                © 2026 BarnalaByte Smart Library |
+                All Rights Reserved.
+
+            </p>
+
+        </footer> -->
+
+    </div>
+
+</div>
+
+<script src="student-dashboard.js"></script>
+
+</body>
+
+</html>

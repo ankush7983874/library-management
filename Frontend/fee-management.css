@@ -1,0 +1,136 @@
+.container{
+
+    width:95%;
+    max-width:1400px;
+
+    margin:40px auto;
+}
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:20px;
+
+    margin-bottom:30px;
+}
+
+.card{
+
+    padding:25px;
+
+    text-align:center;
+}
+
+.card h2{
+
+    color:#38bdf8;
+
+    margin-bottom:10px;
+}
+
+.card p{
+
+    color:#cbd5e1;
+}
+
+.table-box{
+
+    padding:20px;
+
+    overflow-x:auto;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+th{
+
+    background:
+    rgba(56,189,248,.15);
+
+    color:#38bdf8;
+
+    padding:15px;
+}
+
+td{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
+}
+
+td img{
+
+    width:50px;
+    height:50px;
+
+    border-radius:50%;
+}
+
+.paid{
+
+    background:#22c55e;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    color:white;
+}
+
+.pending{
+
+    background:#ef4444;
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    color:white;
+}
+
+.view-btn,
+.reminder-btn{
+
+    border:none;
+
+    padding:10px 15px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+}
+
+.view-btn{
+
+    background:#38bdf8;
+    color:white;
+}
+
+.reminder-btn{
+
+    background:#f59e0b;
+    color:white;
+}
+
+.view-btn:hover,
+.reminder-btn:hover{
+
+    transform:translateY(-3px);
+
+    transition:.3s;
+}

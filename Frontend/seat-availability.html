@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>150 Seat Floor Chart | BarnalaByte Library</title>
+<link rel="stylesheet" href="seat-availability.css">
+<link rel="stylesheet" href="css/theme.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <h1><i class="fa-solid fa-chair"></i> BarnalaByte Library Floor Map</h1>
+    <nav>
+        <a href="student-dashboard.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+        <a href="seat-booking.html"><i class="fa-solid fa-bookmark"></i> Book Seat</a>
+    </nav>
+</header>
+
+<section class="heading">
+    <h2>150-Seat Interactive Floor Chart</h2>
+    <p>Live Real-Time Seat Map from MongoDB. Click any free seat to select it.</p>
+
+    <!-- Live Seat Summary Cards -->
+    <div id="seatSummaryBanner" style="display: flex; gap: 15px; justify-content: center; margin: 20px auto 10px; max-width: 800px; flex-wrap: wrap;">
+        <div style="background: #22c55e; color: #ffffff; padding: 12px 24px; border-radius: 10px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(34,197,94,0.2);">
+            🟢 Free Seats: <span id="summaryFreeSeats">--</span>
+        </div>
+        <div style="background: #ef4444; color: #ffffff; padding: 12px 24px; border-radius: 10px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(239,68,68,0.2);">
+            🔴 Booked Seats: <span id="summaryBookedSeats">--</span>
+        </div>
+        <div style="background: #2563eb; color: #ffffff; padding: 12px 24px; border-radius: 10px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 10px rgba(37,99,235,0.2);">
+            🪑 Total Capacity: 150
+        </div>
+    </div>
+</section>
+
+<!-- Quick Seat Search Filter -->
+<div class="search-container">
+    <input type="number" id="seatSearchInput" min="1" max="150" placeholder="🔍 Search seat number (1–150)...">
+</div>
+
+<!-- Legend -->
+<div class="legend">
+    <div><span class="available-box"></span> Available (Free)</div>
+    <div><span class="occupied-box"></span> Booked 🔴</div>
+    <div><span class="selected-box"></span> Selected</div>
+</div>
+
+<!-- 150-Seat Floor Chart Container -->
+<div style="max-width: 1050px; margin: 0 auto; padding: 0 15px;">
+    
+    <!-- Zone A: Seats 1 - 50 -->
+    <div class="zone-header">
+        <span><i class="fa-solid fa-layer-group"></i> Zone A: Quiet Study Hall (Seats 1–50)</span>
+        <span style="font-size:13px; color:#94a3b8; font-weight:normal;">Front Hall</span>
+    </div>
+    <div class="seat-chart-grid" id="zoneAGrid"></div>
+
+    <!-- Zone B: Seats 51 - 100 -->
+    <div class="zone-header" style="border-left-color: #eab308; color: #eab308; margin-top: 35px;">
+        <span><i class="fa-solid fa-laptop-code"></i> Zone B: Computer & Digital Zone (Seats 51–100)</span>
+        <span style="font-size:13px; color:#94a3b8; font-weight:normal;">Middle Hall</span>
+    </div>
+    <div class="seat-chart-grid" id="zoneBGrid"></div>
+
+    <!-- Zone C: Seats 101 - 150 -->
+    <div class="zone-header" style="border-left-color: #a855f7; color: #a855f7; margin-top: 35px;">
+        <span><i class="fa-solid fa-book-open-reader"></i> Zone C: Premium Reading Bay (Seats 101–150)</span>
+        <span style="font-size:13px; color:#94a3b8; font-weight:normal;">Back Hall</span>
+    </div>
+    <div class="seat-chart-grid" id="zoneCGrid"></div>
+
+</div>
+
+<!-- Selected Seat Confirmation & Proceed Footer -->
+<div class="booking-section">
+    <div style="background: #1e293b; max-width: 450px; margin: 0 auto; padding: 20px; border-radius: 12px; border: 1px solid #334155;">
+        <h3 id="selectedSeat" style="color: #38bdf8; font-size: 18px; margin-bottom: 12px;">
+            No Seat Selected
+        </h3>
+        <button id="bookBtn" style="width: 100%;">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i> Proceed To Book Selected Seat
+        </button>
+    </div>
+</div>
+
+<script src="seat.js"></script>
+</body>
+</html>

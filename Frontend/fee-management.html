@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Management</title>
+    <link rel="stylesheet" href="fee-management.css">
+    <link rel="stylesheet" href="theme.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class ="title"> fee management</h1>
+        <div class="card glass">
+            <h2> 100000</h2>
+            <p> total collection</p>
+
+        </div>
+        <div class="card glass">
+            <h2>32</h2>
+            <p>Pending Students</p>
+        </div>
+
+        <div class="card glass">
+            <h2>118</h2>
+            <p>Paid Students</p>
+        </div>
+
+    </div>
+
+    <div class="table-box glass">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Seat</th>
+                    <th>Month</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>
+                        <img src="https://i.pravatar.cc/50?img=1">
+                    </td>
+
+                    <td>Rahul Kumar</td>
+
+                    <td>25</td>
+
+                    <td>July 2026</td>
+
+                    <td>₹800</td>
+
+                    <td>
+                        <span class="paid">
+                            Paid
+                        </span>
+                    </td>
+
+                    <td>
+
+                        <button class="view-btn">
+                            View
+                        </button>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <img src="https://i.pravatar.cc/50?img=2">
+                    </td>
+
+                    <td>Ankit Sharma</td>
+
+                    <td>48</td>
+
+                    <td>July 2026</td>
+
+                    <td>₹800</td>
+
+                    <td>
+                        <span class="pending">
+                            Pending
+                        </span>
+                    </td>
+
+                    <td>
+
+                        <button class="reminder-btn">
+                            Reminder
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+    </div>
+<script>
+if (!localStorage.getItem("ownerToken")) {
+    alert("Owner access required. Please login as Owner.");
+    window.location.href = "owner-login.html";
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Owner Account | BarnalaByte Smart Library</title>
+    <link rel="stylesheet" href="owner-register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="register-wrapper">
+        <div class="neumorphic-card">
+
+            <!-- Top Circular Embossed Icon Container -->
+            <div class="top-icon-container">
+                <div class="icon-circle">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+            </div>
+
+            <!-- Title & Subtitle -->
+            <div class="title-header">
+                <h2>Create Owner Account</h2>
+                <p>Set up your BarnalaByte Library account</p>
+            </div>
+
+            <!-- Error / Status Alert Box -->
+            <div id="alertBox" class="alert-box" style="display: none;"></div>
+
+            <!-- Owner Registration Form -->
+            <form id="registerForm" novalidate>
+
+                <!-- SECTION 1: Library Details -->
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-building-columns"></i> Library Details</h3>
+                    <div class="input-group">
+                        <label for="libraryName">Library Name <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-building input-icon"></i>
+                            <input type="text" id="libraryName" placeholder="Enter library name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: Owner Details -->
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-user-tie"></i> Owner Details</h3>
+                    <div class="input-group">
+                        <label for="ownerName">Owner Name <span class="req">*</span></label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" id="ownerName" placeholder="Enter owner full name" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Contact Details & Email Verification -->
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-address-book"></i> Contact Details & Email Verification</h3>
+                    
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label for="mobile">Mobile Number <span class="req">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-phone input-icon"></i>
+                                <input type="tel" id="mobile" placeholder="Enter 10-digit mobile" maxlength="10" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="email">Email Address <span class="req">*</span></label>
+                            <div class="input-wrapper-btn">
+                                <div class="input-wrapper flex-1">
+                                    <i class="fa-solid fa-envelope input-icon"></i>
+                                    <input type="email" id="email" placeholder="Enter email address" required>
+                                </div>
+                                <button type="button" id="sendOtpBtn" class="neu-action-btn">
+                                    Send OTP
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Email OTP Verification Sub-Box -->
+                    <div id="otpContainer" class="neu-sub-box" style="display: none;">
+                        <div class="input-wrapper-btn">
+                            <div class="input-wrapper flex-1">
+                                <i class="fa-solid fa-shield-halved input-icon"></i>
+                                <input type="text" id="otpInput" placeholder="Enter 6-digit Email OTP" maxlength="6">
+                            </div>
+                            <button type="button" id="verifyOtpBtn" class="neu-success-btn">
+                                Verify OTP
+                            </button>
+                        </div>
+                        <div id="otpStatus" class="status-msg"></div>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: Account Security -->
+                <div class="form-section">
+                    <h3 class="section-title"><i class="fa-solid fa-lock"></i> Account Security</h3>
+                    <div class="grid-2">
+                        <div class="input-group">
+                            <label for="password">Password <span class="req">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-key input-icon"></i>
+                                <input type="password" id="password" placeholder="Create password" required>
+                                <button type="button" id="togglePassBtn1" class="eye-toggle-btn" aria-label="Toggle password visibility">
+                                    <i id="eyeIcon1" class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="confirmPassword">Confirm Password <span class="req">*</span></label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-key input-icon"></i>
+                                <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+                                <button type="button" id="togglePassBtn2" class="eye-toggle-btn" aria-label="Toggle confirm password visibility">
+                                    <i id="eyeIcon2" class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submitBtn" class="login-btn" disabled>
+                    <span id="btnText">CREATE ACCOUNT</span>
+                </button>
+
+            </form>
+
+            <!-- Bottom Navigation Link to Login -->
+            <div class="signup-section">
+                <span>Already have an account?</span>
+                <a href="owner-login.html" class="login-link-btn">
+                    Login <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="owner-register.js"></script>
+
+</body>
+
+</html>

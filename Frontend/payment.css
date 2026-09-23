@@ -1,0 +1,830 @@
+/* =======================================
+   BarnalaByte Payment Module
+   Premium Glassmorphism UI
+   Part 1
+======================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+
+    min-height:100vh;
+
+    padding:40px;
+
+}
+
+/* ============================= */
+
+.container{
+
+    width:95%;
+    max-width:1400px;
+
+    margin:auto;
+
+}
+
+/* ============================= */
+/* Header */
+/* ============================= */
+
+header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+header h1{
+
+    color:#fff;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+#dashboardBtn{
+
+    background:rgba(255,255,255,.15);
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.25);
+
+    backdrop-filter:blur(20px);
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.35s;
+
+}
+
+#dashboardBtn:hover{
+
+    transform:translateY(-3px);
+
+    background:#2563eb;
+
+}
+
+/* ============================= */
+/* Student Card */
+/* ============================= */
+
+.student-card{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    padding:25px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+}
+
+.student-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+}
+
+.student-info img{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid white;
+
+}
+
+.student-info h2{
+
+    color:#fff;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+.student-info p{
+
+    color:#dbeafe;
+
+    margin-bottom:12px;
+
+}
+
+#paymentStatus{
+
+    background:#f59e0b;
+
+    color:#fff;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    font-weight:600;
+
+    display:inline-block;
+
+}
+
+/* ============================= */
+/* Fee Cards */
+/* ============================= */
+
+.fee-card{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.fee-box{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:white;
+
+    transition:.4s;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+
+}
+
+.fee-box:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.fee-box h3{
+
+    color:#dbeafe;
+
+    margin-bottom:15px;
+
+    font-size:18px;
+
+}
+
+.fee-box h1{
+
+    font-size:42px;
+
+    color:#22c55e;
+
+}
+
+.fee-box h2{
+
+    font-size:26px;
+
+}
+
+/* ============================= */
+/* Payment Card */
+/* ============================= */
+
+.payment-card{
+
+    display:grid;
+
+    grid-template-columns:1fr 1.2fr;
+
+    gap:35px;
+
+    margin-bottom:40px;
+
+}
+
+.left,
+.right{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(25px);
+
+    border-radius:25px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    padding:35px;
+
+    color:white;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+
+}
+
+.left{
+
+    text-align:center;
+
+}
+
+.left h2{
+
+    margin-bottom:25px;
+
+}
+
+.qr{
+
+    width:260px;
+
+    height:260px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    background:white;
+
+    padding:12px;
+
+    margin-bottom:20px;
+
+}
+
+.left p{
+
+    color:#dbeafe;
+
+    line-height:1.8;
+
+}
+
+/* ============================= */
+
+.right h2{
+
+    margin-bottom:25px;
+
+}
+
+.right label{
+
+    display:block;
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.right input,
+.right select{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:12px;
+
+    font-size:15px;
+
+}
+
+.upi-box{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+#copyBtn{
+
+    width:60px;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:20px;
+
+    transition:.3s;
+
+}
+
+#copyBtn:hover{
+
+    background:#16a34a;
+
+}
+
+#submitPayment{
+
+    margin-top:30px;
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:linear-gradient(90deg,#2563eb,#06b6d4);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+#submitPayment:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 15px 25px rgba(37,99,235,.35);
+
+}
+
+/* =======================================
+   Payment History
+======================================= */
+
+.history{
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+
+}
+
+.history h2{
+
+    color:white;
+
+    margin-bottom:25px;
+
+    font-size:28px;
+
+}
+
+/* =======================================
+   Table
+======================================= */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    overflow:hidden;
+
+    border-radius:15px;
+
+}
+
+thead{
+
+    background:rgba(255,255,255,.18);
+
+}
+
+thead th{
+
+    color:white;
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+tbody tr:hover{
+
+    background:rgba(255,255,255,.08);
+
+}
+
+tbody td{
+
+    color:#fff;
+
+    padding:18px;
+
+}
+
+/* =======================================
+   Status
+======================================= */
+
+.status-paid{
+
+    color:#22c55e;
+
+    font-weight:700;
+
+}
+
+.status-pending{
+
+    color:#facc15;
+
+    font-weight:700;
+
+}
+
+.status-rejected{
+
+    color:#ef4444;
+
+    font-weight:700;
+
+}
+
+/* =======================================
+   File Upload
+======================================= */
+
+input[type=file]{
+
+    background:white;
+
+    cursor:pointer;
+
+}
+
+input[type=file]::file-selector-button{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    margin-right:15px;
+
+}
+
+input[type=file]::file-selector-button:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* =======================================
+   Input Focus
+======================================= */
+
+input:focus,
+select:focus{
+
+    border:2px solid #3b82f6;
+
+    box-shadow:0 0 10px rgba(59,130,246,.4);
+
+}
+
+/* =======================================
+   Scrollbar
+======================================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#3b82f6;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#dbeafe;
+
+}
+
+/* =======================================
+   Animation
+======================================= */
+
+.student-card,
+.fee-box,
+.payment-card,
+.history{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =======================================
+   Responsive
+======================================= */
+
+@media(max-width:1100px){
+
+.payment-card{
+
+grid-template-columns:1fr;
+
+}
+
+.left{
+
+order:2;
+
+}
+
+.right{
+
+order:1;
+
+}
+
+.qr{
+
+width:220px;
+
+height:220px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+body{
+
+padding:15px;
+
+}
+
+header{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+header h1{
+
+font-size:28px;
+
+text-align:center;
+
+}
+
+.student-info{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.student-info img{
+
+width:90px;
+
+height:90px;
+
+}
+
+.fee-card{
+
+grid-template-columns:1fr;
+
+}
+
+.fee-box h1{
+
+font-size:34px;
+
+}
+
+.history{
+
+overflow-x:auto;
+
+}
+
+table{
+
+min-width:700px;
+
+}
+
+.upi-box{
+
+flex-direction:column;
+
+}
+
+#copyBtn{
+
+width:100%;
+
+height:50px;
+
+}
+
+#submitPayment{
+
+font-size:16px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.right,
+.left,
+.student-card,
+.history{
+
+padding:20px;
+
+}
+
+.qr{
+
+width:180px;
+
+height:180px;
+
+}
+
+header h1{
+
+font-size:24px;
+
+}
+
+.fee-box{
+
+padding:20px;
+
+}
+
+.fee-box h1{
+
+font-size:30px;
+
+}
+
+}
+
+/* =======================================
+   Hover Effects
+======================================= */
+
+.student-card:hover,
+.history:hover{
+
+transform:translateY(-4px);
+
+transition:.35s;
+
+}
+
+.fee-box:hover{
+
+box-shadow:0 20px 40px rgba(37,99,235,.35);
+
+}
+
+.left:hover,
+.right:hover{
+
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+transition:.35s;
+
+}
+
+/* =======================================
+   End
+======================================= */

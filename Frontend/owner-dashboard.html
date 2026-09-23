@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BarnalaByte | Owner Dashboard</title>
+
+    <link rel="stylesheet" href="owner-dashboard.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>📚 BarnalaByte</h2>
+
+        </div>
+
+        <ul>
+
+            <li class="active" onclick="location.href='owner-dashboard.html'">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </li>
+
+            <li onclick="location.href='student-management.html'">
+                <i class="fa-solid fa-users"></i>
+                <span>Students</span>
+            </li>
+
+            <li onclick="location.href='seat-management.html'">
+                <i class="fa-solid fa-chair"></i>
+                <span>Seats</span>
+            </li>
+
+            <li onclick="location.href='payment-management.html'">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span>Payments</span>
+            </li>
+
+            <li onclick="location.href='attendance.html'">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Attendance</span>
+            </li>
+
+            <li onclick="location.href='waiting-list.html'">
+                <i class="fa-solid fa-clock"></i>
+                <span>Waiting List</span>
+            </li>
+
+            <li onclick="location.href='id-cards.html'">
+                <i class="fa-solid fa-id-card"></i>
+                <span>ID Cards</span>
+            </li>
+
+            <li onclick="location.href='reports.html'">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Reports</span>
+            </li>
+
+            <li onclick="location.href='settings.html'">
+                <i class="fa-solid fa-gear"></i>
+                <span>Settings</span>
+            </li>
+
+            <li id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>Owner Dashboard</h1>
+
+                <p>Welcome Back 👋</p>
+
+            </div>
+
+            <div class="top-right">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchStudent"
+                        placeholder="Search Student">
+
+                </div>
+
+                <div class="notification">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span id="notificationCount">3</span>
+
+                </div>
+
+                <div class="time-box">
+
+                    <h3 id="clock">00:00:00</h3>
+
+                    <small id="date">Loading...</small>
+
+                </div>
+
+                <div class="owner-profile">
+
+                    <img src="images/logo.png" alt="Owner">
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Dashboard Cards -->
+
+        <section class="dashboard-cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h2 id="totalStudents">0</h2>
+
+                <p>Total Students</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-chair"></i>
+
+                <h2 id="totalSeats">150</h2>
+
+                <p>Total Seats</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <h2 id="occupiedSeats">0</h2>
+
+                <p>Occupied Seats</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle"></i>
+
+                <h2 id="availableSeats">150</h2>
+
+                <p>Available Seats</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                <h2 id="monthlyIncome">₹0</h2>
+
+                <p>Monthly Income</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                <h2 id="pendingFees">0</h2>
+
+                <p>Pending Fees</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-calendar-day"></i>
+
+                <h2 id="todayAttendance">0</h2>
+
+                <p>Today's Attendance</p>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-user-clock"></i>
+
+                <h2 id="waitingStudents">0</h2>
+
+                <p>Waiting Students</p>
+
+            </div>
+
+        </section>
+
+        <!-- Quick Actions -->
+
+        <section class="quick-actions">
+
+            <button onclick="location.href='student-management.html'">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Add Student
+
+            </button>
+
+            <button onclick="location.href='seat-management.html'">
+
+                <i class="fa-solid fa-chair"></i>
+
+                Manage Seats
+
+            </button>
+
+            <button onclick="location.href='payment-management.html'">
+
+                <i class="fa-solid fa-money-bill-wave"></i>
+
+                Payments
+
+            </button>
+
+            <button onclick="location.href='reports.html'">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Reports
+
+            </button>
+
+        </section>
+
+        <!-- Pending Manual Payments Review Section (Phase 7) -->
+
+        <section class="table-box">
+
+            <div class="table-header" style="background: #fff3cd; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+
+                <h2 style="color: #856404;"><i class="fa-solid fa-clock"></i> Pending Manual Payments (Awaiting Owner Review)</h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Student</th>
+
+                        <th>Mobile</th>
+
+                        <th>Amount</th>
+
+                        <th>Txn / UTR ID</th>
+
+                        <th>Date</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="pendingManualTable">
+
+                    <!-- Dynamic -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Live Attendance Roster Section -->
+        <section class="table-box">
+            <div class="table-header" style="background: #e0f2fe; padding: 10px; border-radius: 6px; margin-bottom: 10px;">
+                <h2 style="color: #0369a1;"><i class="fa-solid fa-user-check"></i> Live Students Currently Inside Library</h2>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Student ID</th>
+                        <th>Mobile</th>
+                        <th>Seat</th>
+                        <th>Entry Time</th>
+                        <th>Current Duration</th>
+                        <th>Distance</th>
+                    </tr>
+                </thead>
+                <tbody id="liveRosterTable">
+                    <!-- Dynamic -->
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Recent Students -->
+
+        <section class="table-box">
+
+            <div class="table-header">
+
+                <h2>Recent Students</h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Name</th>
+
+                        <th>Seat</th>
+
+                        <th>Mobile</th>
+
+                        <th>Fees</th>
+
+                        <th>Status</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="studentTable">
+
+                    <!-- Dynamic -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Recent Payments -->
+
+        <section class="table-box">
+
+            <div class="table-header">
+
+                <h2>Recent Payments</h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Student</th>
+
+                        <th>Month</th>
+
+                        <th>Amount</th>
+
+                        <th>Status</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="paymentTable">
+
+                    <!-- Dynamic -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <!-- Waiting List (Phase 7) -->
+
+        <section class="table-box">
+
+            <div class="table-header">
+
+                <h2><i class="fa-solid fa-user-clock"></i> Waiting List (Seats Occupied)</h2>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Student</th>
+
+                        <th>Mobile</th>
+
+                        <th>Email</th>
+
+                        <th>Status</th>
+
+                        <th>Joined Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="waitingListTable">
+
+                    <!-- Dynamic -->
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="owner-dashboard.js"></script>
+
+</body>
+
+</html>
