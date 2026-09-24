@@ -1,6 +1,6 @@
-const Student = require("../models/Student");
-const Seat = require("../models/Seat");
-const Waiting = require("../models/Waiting");
+const Student = require("../models/student");
+const Seat = require("../models/seat");
+const Waiting = require("../models/waiting");
 
 const generateQRCode = require("../utils/qrGenerator");
 const generatePDF = require("../utils/pdfGenerator");

@@ -1,5 +1,5 @@
-const Seat = require("../models/Seat");
-const Student = require("../models/Student");
+const Seat = require("../models/seat");
+const Student = require("../models/student");
 
 // =====================================
 // Create 150 Seats (Run Only Once)

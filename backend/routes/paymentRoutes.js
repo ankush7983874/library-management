@@ -10,7 +10,7 @@ const {
     ownerVerifyPayment,
     getStudentPayments,
     getAllPayments
-} = require('../controllers/paymentController');
+} = require('../controllers/paymentcontroller');
 
 // Payment initiation & verification (Authenticated Student/Owner)
 router.post('/create-order', authenticate, createOrder);

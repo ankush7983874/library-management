@@ -3,7 +3,7 @@ const Payment = require("../models/payment");
 const Seat = require("../models/seat");
 const Attendance = require("../models/attendance");
 const Owner = require("../models/owner");
-const Waiting = require("../models/Waiting");
+const Waiting = require("../models/waiting");
 
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");

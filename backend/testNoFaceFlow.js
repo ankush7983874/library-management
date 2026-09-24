@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const Student = require("./models/Student");
-const Seat = require("./models/Seat");
-const Payment = require("./models/Payment");
+const Student = require("./models/student");
+const Seat = require("./models/seat");
+const Payment = require("./models/payment");
 const { generateAndSendOTP, verifyOTP } = require("./services/otpService");
 const paymentSuccessService = require("./services/paymentSuccessService");
 

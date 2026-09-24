@@ -59,8 +59,8 @@ async function runTests() {
         await mongoose.connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/BarnalaByte");
     }
 
-    const Student = require('./models/Student');
-    const Owner = require('./models/Owner');
+    const Student = require('./models/student');
+    const Owner = require('./models/owner');
     const OTP = require('./models/OTP');
     const bcrypt = require('bcryptjs');
 
