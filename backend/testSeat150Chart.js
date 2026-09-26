@@ -1,57 +1,67 @@
-// ====================================================
-// Automated Verification: 150 Seat Interactive Floor Chart
-// ====================================================
+const http = require('http');
 
-const fs = require('fs');
-const path = require('path');
-
-console.log("Starting 150-Seat Interactive Floor Chart Verification...\n");
-
-const frontendDir = path.join(__dirname, '../Frontend');
-
-function checkFileContains(fileName, expectedStrings) {
-    const filePath = path.join(frontendDir, fileName);
-    const content = fs.readFileSync(filePath, 'utf8');
-
-    expectedStrings.forEach(str => {
-        if (content.includes(str)) {
-            console.log(`[PASS] ${fileName} contains: "${str}"`);
-        } else {
-            console.error(`[FAIL] ${fileName} MISSING: "${str}"`);
-            process.exit(1);
-        }
+function testGetSeats() {
+    return new Promise((resolve, reject) => {
+        http.get('http://localhost:5000/api/seat', (res) => {
+            let body = '';
+            res.on('data', chunk => body += chunk);
+            res.on('end', () => {
+                try {
+                    const data = JSON.parse(body);
+                    resolve({ statusCode: res.statusCode, data });
+                } catch (e) {
+                    reject(e);
+                }
+            });
+        }).on('error', reject);
     });
 }
 
-// 1. Check seat-availability.html chart zones & search bar
-checkFileContains('seat-availability.html', [
-    '150-Seat Interactive Floor Chart',
-    'Zone A: Quiet Study Hall (Seats 1–50)',
-    'Zone B: Computer & Digital Zone (Seats 51–100)',
-    'Zone C: Premium Reading Bay (Seats 101–150)',
-    'seatSearchInput',
-    'zoneAGrid',
-    'zoneBGrid',
-    'zoneCGrid'
-]);
+async function runTest() {
+    console.log("==========================================");
+    console.log("TESTING 150-SEAT FLOOR MAP API RESTORATION");
+    console.log("==========================================\n");
 
-// 2. Check seat-availability.css 150-seat chart styles
-checkFileContains('seat-availability.css', [
-    '.seat-chart-grid',
-    '.zone-header',
-    'span.seat-num',
-    'span.seat-label'
-]);
+    try {
+        const { statusCode, data } = await testGetSeats();
+        
+        console.log("1. HTTP Status Code:", statusCode);
+        if (statusCode !== 200) {
+            throw new Error(`Expected HTTP 200 OK, got ${statusCode}`);
+        }
+        console.log("✅ HTTP 200 OK Received");
 
-// 3. Check seat.js zone rendering & search filter logic
-checkFileContains('seat.js', [
-    'zoneAGrid',
-    'zoneBGrid',
-    'zoneCGrid',
-    'setupSeatSearchFilter',
-    'data-seat-num'
-]);
+        console.log("2. API Success Property:", data.success);
+        if (!data.success) {
+            throw new Error("API returned success: false");
+        }
+        console.log("✅ API Success True");
 
-console.log("\n=======================================================");
-console.log("ALL 150-SEAT INTERACTIVE CHART CHECKS PASSED!");
-console.log("=======================================================");
+        console.log("3. Total Seats Returned:", data.seats ? data.seats.length : 0);
+        if (!data.seats || data.seats.length !== 150) {
+            throw new Error(`Expected exactly 150 seats, got ${data.seats ? data.seats.length : 0}`);
+        }
+        console.log("✅ Exactly 150 Seats Returned");
+
+        let freeCount = 0;
+        let bookedCount = 0;
+        data.seats.forEach(s => {
+            if (s.status === "Available") freeCount++;
+            else bookedCount++;
+        });
+
+        console.log(`4. Available Free Seats: ${freeCount}`);
+        console.log(`5. Booked / Occupied Seats: ${bookedCount}`);
+        console.log(`6. Total Capacity: ${freeCount + bookedCount} / 150`);
+
+        console.log("\n==========================================");
+        console.log("🎉 ALL 150-SEAT FLOOR MAP VERIFICATIONS PASSED!");
+        console.log("==========================================\n");
+
+    } catch (err) {
+        console.error("❌ TEST FAILED:", err.message);
+        process.exit(1);
+    }
+}
+
+runTest();

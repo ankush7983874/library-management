@@ -1,0 +1,10 @@
+{
+  "name": "barnalabyte-frontend",
+  "version": "1.0.0",
+  "description": "BarnalaByte Smart Library Management System - Frontend",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve -l 5501 .",
+    "start": "npx -y serve -l 5501 ."
+  }
+}

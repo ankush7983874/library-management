@@ -4,7 +4,7 @@ const seatNumberDisplay = document.getElementById("seatNumber");
 const bookBtn = document.getElementById("bookBtn");
 
 let selectedSeatNumber = localStorage.getItem("selectedSeat") || null;
-const token = localStorage.getItem("studentToken");
+const token = localStorage.getItem("studentToken") || localStorage.getItem("ownerToken") || localStorage.getItem("token");
 
 if (seatNumberDisplay && selectedSeatNumber) {
     seatNumberDisplay.innerText = selectedSeatNumber;

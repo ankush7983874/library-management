@@ -19,10 +19,10 @@ const {
 router.post("/create", protectOwner, createSeats);
 
 // =====================================
-// Get Seats (Authenticated)
+// Get Seats
 // =====================================
-router.get("/", authenticate, getSeats);
-router.get("/available", authenticate, availableSeats);
+router.get("/", getSeats);
+router.get("/available", availableSeats);
 
 // =====================================
 // Seat Statistics (Owner Only)
